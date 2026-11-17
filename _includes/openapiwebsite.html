@@ -14,7 +14,7 @@
 			<div class="tmm_container">
 			{%- endif -%}
 				<div class="tmm_member " style="border-top:#aaaaaa solid 5px;">
-					<div data-focus="{{page.name}}_{{forloop.index0}}" class=" tmm_photo" style="background: url({%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}); margin-left: auto; margin-right:auto; background-size:cover !important;"></div>
+					<div data-focus="{{page.name}}_{{forloop.index0}}" class=" tmm_photo" style="background: url({%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID username=committee_member.Username %}); margin-left: auto; margin-right:auto; background-size:cover !important;"></div>
 					<input type="hidden" class="jsfocus">
 					<div class="tmm_textblock">
 						<div class="tmm_names"><span class="tmm_fname">{{ committee_member.FirstName }}</span> <span class="tmm_lname">{{ committee_member.LastName }}</span></div>
