@@ -1,5 +1,5 @@
 ---
-lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a0941000002wBymAAE/collaboration/committees/4e8a4fef-3feb-49c7-9dbc-a07655bfe7a1
+lfx_committee_uid: 404f9b8a-2e4e-4eea-8ec1-5d62a3c6c002
 render: newsite
 filter: all
 ---

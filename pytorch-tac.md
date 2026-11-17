@@ -1,5 +1,5 @@
 ---
-lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a092M00001LkQdtQAF/collaboration/committees/38b3bfc1-397d-49c5-a47b-8b559c3e3728
+lfx_committee_uid: 2dc98ccb-b68f-431b-b0e3-8343e7f01653
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
