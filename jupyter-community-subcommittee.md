@@ -1,5 +1,5 @@
 ---
-lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfx8PfPcaAAbevANl3/collaboration/committees/ecf444d7-0ca9-4b6d-aaa0-e50273a68a18
+lfx_committee_uid: ea48811c-4806-448a-b291-38c986e0f2d9
 filter: allbutstaff
 ---
 

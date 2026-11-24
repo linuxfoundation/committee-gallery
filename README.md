@@ -14,11 +14,24 @@ It’s an easy one-step process to add a new committee. Add a new page in the ro
 
 ```markdown
 ---
-lfx_committee_url: <url from LFX PCC Committee page - example https://projectadmin.lfx.linuxfoundation.org/project/a0941000002wBykAAE/collaboration/committees/40ab4fff-0c3b-4718-91e4-e76b2805f34c>
+lfx_committee_uid: <committee UID from LFX Self Serve - example b3a036b9-5d6f-4ebb-9968-49c598924c14>
 render: # optional, defaults to 'slidedeck'
 filter: # optional, defaults to 'voting'
 ---
 ```
+
+You can use `lfx_committee_url` with a link to the committee in LFX Self Serve instead; the committee UID is taken from the link. Links to the old PCC (`projectadmin.lfx.linuxfoundation.org`) carry v1 committee IDs that don't exist in LFX Self Serve, so the build stops with an error on them.
+
+### API access
+
+Committee members are read from the LFX Self Serve query service (`GET /query/resources?type=committee_member&tags=committee_uid:<uid>`). Unlike the old public PCC endpoint, committee members are not public in LFX Self Serve, so the build needs a bearer token:
+
+- `LFX_API_TOKEN` (required) - set as a repository secret; the build workflows pass it to Jekyll. The identity behind it must be able to view every committee listed here.
+- `LFX_API_URL` (optional) - defaults to `https://lfx-api.v2.cluster.lfx.dev`.
+- `LFX_ALLOW_EMPTY_COMMITTEES=1` (optional) - by default a committee that returns no members fails the build, since that almost always means a wrong UID or missing access rather than an empty committee.
+
+Member email addresses are returned by the API but never written to the generated pages.
+
 Options for `render` are:
 
 - [`oldsite`](_includes/oldsite.html) is the HTML layout most LF project websites used from 2021 or earlier.
@@ -39,18 +52,9 @@ If you need to add additional content or CSS for rendering, you can do this afte
 
 ## Getting the committee data correct
 
-LFX PCC Committee data predominantly pulls from the profile data in the committee member’s [openprofile.dev](https://openprofile.dev) profile. Specific fields leveraged include:
+Each member's name, job title, organization, role, voting status, appointed-by and LinkedIn URL come from the committee member record in LFX Self Serve; edit them there.
 
-- First Name
-- Last Name
-- Title
-- Current Organization
-- About Me ( instructions for editing [here](https://docs.linuxfoundation.org/lfx/my-profile/profile#id-5.-about-me) )
-- GitHub and LinkedIn ( instructions for editing [here](https://docs.linuxfoundation.org/lfx/my-profile/profile#id-5.-connect-linkedin-and-github) )
-
-Instructions for updating fields for which specific instructions aren’t listed above can be found [here](https://docs.linuxfoundation.org/lfx/my-profile/settings/update-profile-information).
-
-This data can be overridden for the user on the committee itself. Details can be found [here](https://docs.linuxfoundation.org/lfx/project-control-center/v2-latest-version/collaborations/committees/adding-members-to-a-committee).
+Headshots come from the member's LFX profile picture, which LFX copies onto each committee member record. Bios, Twitter and GitHub aren't available from LFX Self Serve, so those are blank on generated pages. To override a headshot or supply a missing one, add an image to the `_profile_images` folder named with the member's LFX username (or their committee member UID), e.g. `_profile_images/jdoe.jpg`. Set `default_headshot` in `_config.yml` to use a placeholder image for everyone else.
 
 ## Hosting on a website
 

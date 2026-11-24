@@ -1,5 +1,6 @@
 {%- assign profile_image = include.profile_image -%}
 {%- for file in site.static_files -%}
-{%- if file.basename == include.member_id -%}{%- assign profile_image = site.url | append: file.path -%}{%- endif -%}
+{%- if file.basename == include.member_id or include.username and file.basename == include.username -%}{%- assign profile_image = site.url | append: file.path -%}{%- endif -%}
 {%- endfor -%}
+{%- if profile_image == nil or profile_image == "" -%}{%- assign profile_image = site.default_headshot -%}{%- endif -%}
 {{ profile_image }}

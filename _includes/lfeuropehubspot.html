@@ -6,7 +6,7 @@
                           align--center" style="height: 394.656px;">
                 <a class="team__display" href="#team-bio-{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}">
                   <div class="member--image">
-                 <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}" alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
+                 <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID username=committee_member.Username %}" alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
                   </div>
                   <div class="pb--xs">
                     <div class="team-col__full-name text-color--white">{{ committee_member.FirstName }} {{ committee_member.LastName }}</div>
@@ -28,7 +28,7 @@
 
                     <div class="col4 team-col__popup-content-left">
                     <div class="modal__team-img">
-                      <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"  alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
+                      <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID username=committee_member.Username %}"  alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
                      </div>
                      <div class="modal__social-icons">
 
